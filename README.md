@@ -32,7 +32,7 @@ module.exports = {
       options: {
         baseUrl: `https://live-contentacms.pantheonsite.io/`,
         apiBase: `api`, // optional, defaults to `jsonapi`
-        menus: ["main-menu", "account"]
+        menus: ["main", "account"], // Which menus to fetch, there are the menu IDs.
       },
     },
   ],
