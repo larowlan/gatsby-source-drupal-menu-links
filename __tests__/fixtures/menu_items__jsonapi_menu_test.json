@@ -1,0 +1,69 @@
+{
+  "data": [
+    {
+      "type": "menu_link_content--menu_link_content",
+      "id": "jsonapi_menu_test.user.login",
+      "attributes": {
+        "description": "Login.",
+        "enabled": true,
+        "expanded": false,
+        "menu_name": "jsonapi_menu_items_test",
+        "meta": [],
+        "options": [],
+        "parent": "",
+        "provider": "jsonapi_menu_items_test",
+        "route": {
+          "name": "user.login",
+          "parameters": []
+        },
+        "title": "Login",
+        "url": "\/api\/user\/login",
+        "weight": "0"
+      }
+    },
+    {
+      "type": "menu_link_content--menu_link_content",
+      "id": "jsonapi_menu_test.open",
+      "attributes": {
+        "description": "Home.",
+        "enabled": true,
+        "expanded": false,
+        "menu_name": "jsonapi_menu_items_test",
+        "meta": [],
+        "options": [],
+        "parent": "",
+        "provider": "jsonapi_menu_items_test",
+        "route": {
+          "name": "menu_test.menu_name_test",
+          "parameters": []
+        },
+        "title": "Home",
+        "url": "\/api\/menu_name_test",
+        "weight": "10"
+      }
+    },
+    {
+      "type": "menu_link_content--menu_link_content",
+      "id": "menu_link_content:108a993a-25dd-4d76-ac8d-49ae76ac5231",
+      "attributes": {
+        "description": null,
+        "enabled": true,
+        "expanded": false,
+        "menu_name": "jsonapi_menu_items_test",
+        "meta": {
+          "entity_id": "1"
+        },
+        "options": [],
+        "parent": "jsonapi_menu_test.open",
+        "provider": "menu_link_content",
+        "route": {
+          "name": "menu_test.menu_callback_title",
+          "parameters": []
+        },
+        "title": "an item",
+        "url": "\/api\/menu_callback_title",
+        "weight": "0"
+      }
+    }
+  ]
+}

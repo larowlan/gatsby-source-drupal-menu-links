@@ -1,5 +1,5 @@
-require('es6-promise').polyfill();
-require('isomorphic-fetch');
+require("es6-promise").polyfill()
+require("isomorphic-fetch")
 
 exports.sourceNodes = async (
   {
@@ -19,36 +19,40 @@ exports.sourceNodes = async (
 ) => {
   const {
     baseUrl,
-    apiBase = 'jsonapi',
+    apiBase = "jsonapi",
     basicAuth,
     headers,
     menus,
   } = pluginOptions
-  const {createNode, createParentChildLink} = actions
+  const { createNode, createParentChildLink } = actions
 
   reporter.info(`Starting to fetch menu link items from Drupal`)
-  reporter.info('Menus to fetch are ' + menus.join(', '))
+  reporter.info("Menus to fetch are " + menus.join(", "))
 
   // Data can come from anywhere, but for now create it manually
-  const menuResponses = await Promise.all(menus.map(async menu => {
-    return await fetch(`${baseUrl}/${apiBase}/menu_items/${menu}`, {
-      auth: basicAuth,
-      headers
-    }).then(function (response) {
-      if (response.status >= 400) {
-        reporter.error(`Bad response from ${baseUrl}/${apiBase}/menu_items/${menu}`);
-      }
-      return response.json();
+  const menuResponses = await Promise.all(
+    menus.map(async (menu) => {
+      return await fetch(`${baseUrl}/${apiBase}/menu_items/${menu}`, {
+        auth: basicAuth,
+        headers,
+      }).then(function (response) {
+        if (response.status >= 400) {
+          reporter.error(
+            `Bad response from ${baseUrl}/${apiBase}/menu_items/${menu}`
+          )
+        }
+        return response.json()
+      })
     })
-  }));
-  menuResponses.forEach(({data: menuItems}) => {
-    const map = new Map();
+  )
+  menuResponses.forEach(({ data: menuItems }) => {
+    const map = new Map()
     menuItems.forEach((item) => {
-      const nodeContent = JSON.stringify(item);
-      const id = `menu-items-${item.id}`;
-      let parentId = null;
+      const nodeContent = JSON.stringify(item)
+      const id = `menu-items-${item.id}`
+      let parentId = null
       if (item.attributes.parent) {
-        parentId = `menu-items-${item.attributes.parent}`;
+        parentId = `menu-items-${item.attributes.parent}`
       }
       const nodeMeta = {
         id,
@@ -58,17 +62,15 @@ exports.sourceNodes = async (
           type: `MenuItems`,
           mediaType: `text/html`,
           content: nodeContent,
-          contentDigest: createContentDigest(item)
-        }
-      };
-      const node = Object.assign({}, item.attributes, nodeMeta);
-      createNode(node);
+          contentDigest: createContentDigest(item),
+        },
+      }
+      const node = Object.assign({}, item.attributes, nodeMeta)
+      createNode(node)
       if (parentId && map.has(parentId)) {
-        createParentChildLink({parent: map.get(parentId), child: node})
+        createParentChildLink({ parent: map.get(parentId), child: node })
       }
       map.set(id, node)
     })
-  });
-
+  })
 }
-

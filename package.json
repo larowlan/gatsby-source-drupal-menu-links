@@ -1,14 +1,20 @@
 {
   "name": "gatsby-source-drupal-menu-links",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "Integrates Drupal's jsonapi_menu_items module with Gatsby",
   "main": "index.js",
   "scripts": {
+    "build": "babel src --out-dir . --ignore \"**/__tests__\"",
+    "prepare": "cross-env NODE_ENV=production npm run build",
+    "watch": "babel -w src --out-dir . --ignore \"**/__tests__\"",
+    "semantic-release": "semantic-release",
+    "format": "prettier --write \"{test,src}/**/*.js\"",
+    "lint": "prettier --check \"{test,src}/**/*.js\"",
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/larowlan/gatsby-source-drupal-menu-links.git"
+    "url": "https://github.com/larowlan/gatsby-source-drupal-menu-links.git"
   },
   "keywords": [
     "drupal",
@@ -23,7 +29,11 @@
     "@babel/cli": "^7.10.3",
     "@babel/core": "^7.10.3",
     "babel-preset-gatsby-package": "^0.5.2",
-    "cross-env": "^5.2.1"
+    "cross-env": "^5.2.1",
+    "semantic-release": "^17.1.1",
+    "prettier": "^2.0.4",
+    "jest-fetch-mock": "^3.0.3",
+    "jest": "^26.4.2"
   },
   "dependencies": {
     "@babel/runtime": "^7.10.3",
@@ -36,11 +46,6 @@
     "url": "https://github.com/larowlan/gatsby-source-drupal-menu-links/issues"
   },
   "homepage": "https://github.com/larowlan/gatsby-source-drupal-menu-links#readme",
-  "scripts": {
-    "build": "babel src --out-dir . --ignore \"**/__tests__\"",
-    "prepare": "cross-env NODE_ENV=production npm run build",
-    "watch": "babel -w src --out-dir . --ignore \"**/__tests__\""
-  },
   "engines": {
     "node": ">=10.13.0"
   }
