@@ -1,0 +1,47 @@
+{
+  "name": "gatsby-source-drupal-menu-links",
+  "version": "1.0.0",
+  "description": "Integrates Drupal's jsonapi_menu_items module with Gatsby",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/larowlan/gatsby-source-drupal-menu-links.git"
+  },
+  "keywords": [
+    "drupal",
+    "gatsby",
+    "gatsby-plugin",
+    "gatsby-source-plugin"
+  ],
+  "peerDependencies": {
+    "gatsby": "^2.0.15"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.10.3",
+    "@babel/core": "^7.10.3",
+    "babel-preset-gatsby-package": "^0.5.2",
+    "cross-env": "^5.2.1"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.10.3",
+    "isomorphic-fetch": "^2.2.1",
+    "es6-promise": "latest"
+  },
+  "author": "larowlan",
+  "license": "GPL-2.0-only",
+  "bugs": {
+    "url": "https://github.com/larowlan/gatsby-source-drupal-menu-links/issues"
+  },
+  "homepage": "https://github.com/larowlan/gatsby-source-drupal-menu-links#readme",
+  "scripts": {
+    "build": "babel src --out-dir . --ignore \"**/__tests__\"",
+    "prepare": "cross-env NODE_ENV=production npm run build",
+    "watch": "babel -w src --out-dir . --ignore \"**/__tests__\""
+  },
+  "engines": {
+    "node": ">=10.13.0"
+  }
+}
