@@ -7,10 +7,10 @@ node_js:
   - 12
   - node
 install:
-  - npm install
+  - yarn install
 script:
-  - npm run lint
-  - npm run test
+  - yarn run lint
+  - yarn run test
 branches:
   only:
     - master
