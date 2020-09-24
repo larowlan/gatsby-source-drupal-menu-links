@@ -20,8 +20,8 @@ exports.sourceNodes = async (
   const {
     baseUrl,
     apiBase = "jsonapi",
-    basicAuth,
-    headers,
+    basicAuth = {},
+    headers = {},
     menus,
   } = pluginOptions
   const { createNode, createParentChildLink } = actions
@@ -29,11 +29,17 @@ exports.sourceNodes = async (
   reporter.info(`Starting to fetch menu link items from Drupal`)
   reporter.info("Menus to fetch are " + menus.join(", "))
 
+  if (basicAuth.username) {
+    headers.Authorization = `Basic ${Buffer.from(
+      `${basicAuth.username}:${basicAuth.password}`,
+      "utf-8"
+    ).toString("base64")}`
+  }
+
   // Data can come from anywhere, but for now create it manually
   const menuResponses = await Promise.all(
     menus.map(async (menu) => {
       return await fetch(`${baseUrl}/${apiBase}/menu_items/${menu}`, {
-        auth: basicAuth,
         headers,
       }).then(function (response) {
         if (response.status >= 400) {
