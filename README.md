@@ -14,7 +14,7 @@ npm install --save gatsby-source-drupal-menu-links
 
 ### In Drupal land 💧
 
-- Enable jsonapi module from core
+- Enable jsonapi module from core.
 - Add and enable jsonapi_menu_items module
 ```
 composer require "drupal/jsonapi_menu_items"
