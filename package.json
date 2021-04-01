@@ -23,22 +23,23 @@
     "gatsby-source-plugin"
   ],
   "peerDependencies": {
-    "gatsby": "^2.0.15"
+    "gatsby": "^3.0.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.10.3",
-    "@babel/core": "^7.10.3",
-    "babel-preset-gatsby-package": "^0.5.2",
-    "cross-env": "^5.2.1",
-    "semantic-release": "^17.1.1",
-    "prettier": "^2.0.4",
+    "@babel/cli": "^7.13.14",
+    "@babel/core": "^7.13.14",
+    "babel-preset-gatsby-package": "^1.2.0",
+    "cross-env": "^7.0.3",
+    "cz-conventional-changelog": "^3.3.0",
+    "jest": "^26.6.3",
     "jest-fetch-mock": "^3.0.3",
-    "jest": "^26.4.2"
+    "prettier": "^2.2.1",
+    "semantic-release": "^17.4.2"
   },
   "dependencies": {
-    "@babel/runtime": "^7.10.3",
-    "isomorphic-fetch": "^2.2.1",
-    "es6-promise": "latest"
+    "@babel/runtime": "^7.13.10",
+    "es6-promise": "latest",
+    "isomorphic-fetch": "^3.0.0"
   },
   "author": "larowlan",
   "license": "GPL-2.0-only",
@@ -48,5 +49,10 @@
   "homepage": "https://github.com/larowlan/gatsby-source-drupal-menu-links#readme",
   "engines": {
     "node": ">=10.13.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
