@@ -48,7 +48,7 @@
   },
   "homepage": "https://github.com/larowlan/gatsby-source-drupal-menu-links#readme",
   "engines": {
-    "node": ">=10.13.0"
+    "node": ">=14.15.0"
   },
   "config": {
     "commitizen": {
