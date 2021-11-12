@@ -23,7 +23,7 @@
     "gatsby-source-plugin"
   ],
   "peerDependencies": {
-    "gatsby": "^3.0.0"
+    "gatsby": "^3.0.0 || ^4.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.13.14",
